@@ -56,3 +56,19 @@ height(node(_, L, R), N) :- height(L, Nl), height(R, Nr), N is (1+max(Nl, Nr)).%
 
 %-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+%Question 4
+%insert(X, L, L1). Inserts X into the correct spot in ordered list L, L1 is the list with X inserted.
+%	Example IO: insert(5, [1,3,4,7], L1). -> L1 = [1,3,4,5,7] 
+insert(X, [], [X]).
+insert(X, [H|T], [X,H|T]) :- X < H, !.
+insert(X, [H|T0], [H|T]) :- insert(X, T0, T).
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+%Question 5 - Extra Credit
+%flatten(A, B)
+%	Example IO: flatten([1, [2, [3, 4]], 5], L). -> L = [1, 2, 3, 4, 5]
+
+flatten([], []) :- !.
+flatten([H|T], B) :- !, flatten(H, C), flatten(T, D), append(C, D, B).
+flatten(A, [A]).
