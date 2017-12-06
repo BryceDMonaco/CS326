@@ -80,10 +80,38 @@ public class ColorObject
 		
 	}
 	
+	public void SetColorValue (int channel, int value) //0=r, 1=g, 2=b
+	{
+		if (channel == 0)
+		{
+			r = value;
+			
+		} else if (channel == 1)
+		{
+			g = value;
+			
+		} else if (channel == 2)
+		{
+			b = value;
+			
+		} else
+		{
+			System.out.println ("Invalid color channel requested.");
+						
+		}
+		
+	}
+	
+	public String GetName ()
+	{
+		return name;
+		
+	}
+	
 	 @Override
 	 public String toString() 
 	 {
-	    return name + " (" + r + ", " + g + ", " + b + ")";
+	    return name + " " + r + " " + g + " " + b;
 	    
 	 }
 }
