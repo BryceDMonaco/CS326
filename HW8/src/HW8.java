@@ -387,10 +387,37 @@ public class HW8 extends JFrame
 		}
 	}
 	
+	public void OutputToFile () throws IOException
+	{
+		FileOutputStream ostream = new FileOutputStream("Colors.txt");
+		PrintWriter writer = new PrintWriter(ostream); 
+		
+		for (int i = 0; i < 11; i++)
+		{
+			writer.println (colors[i].GetName() + " " + colors[i].GetColorValue(0) + " " + colors[i].GetColorValue(1) + " " + colors[i].GetColorValue(2));
+			
+		}
+		
+		writer.flush ();
+		ostream.close ();
+		
+	}
+	
 	private class WindowDestroyer extends WindowAdapter
 	{
 		public void windowClosing(WindowEvent e)
 		{
+			//Output to the file
+			try 
+			{
+				OutputToFile ();
+			} catch (IOException e1) 
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
 			System.exit(0);
 			
 		}
