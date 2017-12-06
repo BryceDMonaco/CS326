@@ -31,7 +31,7 @@ public class HW8 extends JFrame
 	
 	protected ColorObject colors[];
 	protected ColorObject selectedColor;
-		 
+			 
 	public static void main (String[] args) throws IOException
 	{
 		//System.out.println ("Hello World!");
@@ -285,12 +285,25 @@ public class HW8 extends JFrame
 		
 		getContentPane().add (blueMinus, c);
 		
+		//Add Button Listeners
+		buttonSave.addActionListener(new ActionHandler ());
+		buttonReset.addActionListener(new ActionHandler ());
+		redPlus.addActionListener(new ActionHandler ());
+		redMinus.addActionListener(new ActionHandler ());
+		greenPlus.addActionListener(new ActionHandler ());
+		greenMinus.addActionListener(new ActionHandler ());
+		bluePlus.addActionListener(new ActionHandler ());
+		blueMinus.addActionListener(new ActionHandler ());
+		
 		colorList.setListData(colorNames);
 		
 		//Set default values
 		colorList.setSelectedIndex (0);
 		selectedColor = new ColorObject (colors[0].GetName(), colors[0].GetColorValue(0), colors[0].GetColorValue(1), colors[0].GetColorValue(2));
 		colorBox.SetColor (selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+		redField.setText (String.valueOf(selectedColor.GetColorValue(0)));
+		greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
+		blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
 		
 				 
 	}
@@ -299,6 +312,77 @@ public class HW8 extends JFrame
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			if (e.getSource() == redPlus && selectedColor.GetColorValue(0) < 255)
+			{	
+				selectedColor.SetColorValue (0, selectedColor.GetColorValue(0) + 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				redField.setText (String.valueOf(selectedColor.GetColorValue(0)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == redMinus && selectedColor.GetColorValue(0) > 0)
+			{
+				selectedColor.SetColorValue (0, selectedColor.GetColorValue(0) - 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				redField.setText (String.valueOf(selectedColor.GetColorValue(0)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == greenPlus && selectedColor.GetColorValue(1) < 255)
+			{	
+				selectedColor.SetColorValue (1, selectedColor.GetColorValue(1) + 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == greenMinus && selectedColor.GetColorValue(1) > 0)
+			{
+				selectedColor.SetColorValue (1, selectedColor.GetColorValue(1) - 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == bluePlus && selectedColor.GetColorValue(2) < 255)
+			{	
+				selectedColor.SetColorValue (2, selectedColor.GetColorValue(2) + 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == blueMinus && selectedColor.GetColorValue(2) > 0)
+			{
+				selectedColor.SetColorValue (2, selectedColor.GetColorValue(2) - 1);
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
+				
+				setTitle ("Color Sampler*");
+				
+			} else if (e.getSource() == buttonSave)
+			{
+				//Save the color
+				int i = colorList.getSelectedIndex();
+				
+				colors[i] = new ColorObject(selectedColor.GetName(), selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				
+				setTitle ("Color Sampler");
+				
+			} else if (e.getSource() == buttonReset)
+			{
+				//Reset the color
+				int i = colorList.getSelectedIndex();
+				
+				selectedColor = new ColorObject(colors[i].GetName(), colors[i].GetColorValue(0), colors[i].GetColorValue(1), colors[i].GetColorValue(2));
+				
+				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				
+				redField.setText (String.valueOf(selectedColor.GetColorValue(0)));
+				greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
+				blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
+				
+			}
 			
 		}
 	}
@@ -323,6 +407,10 @@ public class HW8 extends JFrame
 				selectedColor = new ColorObject(colors[i].GetName(), colors[i].GetColorValue(0), colors[i].GetColorValue(1), colors[i].GetColorValue(2));
 				
 				colorBox.SetColor(selectedColor.GetColorValue(0), selectedColor.GetColorValue(1), selectedColor.GetColorValue(2));
+				
+				redField.setText (String.valueOf(selectedColor.GetColorValue(0)));
+				greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
+				blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
 				
 				//colorBox.repaint();
 				
