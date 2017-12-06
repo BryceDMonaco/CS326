@@ -102,9 +102,10 @@ public class HW8 extends JFrame
 		GridBagConstraints c;
 		
 		c = new GridBagConstraints ();
-		c.fill = GridBagConstraints.HORIZONTAL;
+		c.fill = GridBagConstraints.BOTH;
 		c.ipady = 40;      //make this component tall
 		c.weightx = 0.1;
+		c.weighty = 0.2;
 		c.gridwidth = 4;
 		c.gridx = 0;
 		c.gridy = 0;
