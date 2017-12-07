@@ -383,6 +383,8 @@ public class HW8 extends JFrame
 				greenField.setText (String.valueOf(selectedColor.GetColorValue(1)));
 				blueField.setText (String.valueOf(selectedColor.GetColorValue(2)));
 				
+				setTitle ("Color Sampler");
+				
 			}
 			
 		}
