@@ -150,7 +150,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 2;
+		c.gridx = 3;
 		c.gridy = 1;
 		
 		getContentPane().add (redPlus, c);
@@ -161,7 +161,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 3;
+		c.gridx = 2;
 		c.gridy = 1;
 		
 		getContentPane().add (redMinus, c);
@@ -194,7 +194,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 2;
+		c.gridx = 3;
 		c.gridy = 2;
 		
 		getContentPane().add (greenPlus, c);
@@ -205,7 +205,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 3;
+		c.gridx = 2;
 		c.gridy = 2;
 		
 		getContentPane().add (greenMinus, c);
@@ -238,7 +238,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 2;
+		c.gridx = 3;
 		c.gridy = 3;
 		
 		getContentPane().add (bluePlus, c);
@@ -281,7 +281,7 @@ public class HW8 extends JFrame
 		//c.ipadx = 30;      //make this component tall
 		c.weightx = 0.1;
 		c.gridwidth = 1;
-		c.gridx = 3;
+		c.gridx = 2;
 		c.gridy = 3;
 		
 		getContentPane().add (blueMinus, c);
